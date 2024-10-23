@@ -22,13 +22,16 @@
   <div class="row">
     @foreach ($comics as $comic)
     <div class="col-6 col-md-4 col-lg-2 mb-4 d-flex">
-      <div class="comic-card text-center p-2 border">
-        <img src="{{ $comic['thumb'] }}" alt="{{ $comic['title'] }}" class="img-fluid mb-2">
-        <h5>{{ $comic['title'] }}</h5>
-        <p class="text-muted"><strong>Price:</strong> {{ $comic['price'] }}</p>
-        <p class="text-muted"><strong>Type:</strong> {{ $comic['type'] }}</p>
-      </div>
+      <a href="{{ route('comics.show', ['id' => $loop->index]) }}" class="text-decoration-none w-100">
+        <div class="comic-card text-center p-2 border">
+          <img src="{{ $comic['thumb'] }}" alt="{{ $comic['title'] }}" class="img-fluid mb-2">
+          <h5>{{ $comic['title'] }}</h5>
+          <p class="text-muted"><strong>Price:</strong> {{ $comic['price'] }}</p>
+          <p class="text-muted"><strong>Type:</strong> {{ $comic['type'] }}</p>
+        </div>
+      </a>
     </div>
     @endforeach
+  </div>
 </section>
 @endsection
