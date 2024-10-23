@@ -19,19 +19,16 @@
     "series" => "Action Comics",
     "sale_date" => "2018-10-02",
     "type" => "comic book", -->
-  <div class="row justify-content-around">
+  <div class="row">
     @foreach ($comics as $comic)
-    <div class="comic-card">
-      <img src="{{ $comic['thumb'] }}" alt="{{ $comic['title'] }}">
-      <h3>{{ $comic['title'] }}</h3>
-      <p>{{ $comic['description'] }}</p>
-      <p><strong>Price:</strong> {{ $comic['price'] }}</p>
-      <p><strong>Series:</strong> {{ $comic['series'] }}</p>
-      <p><strong>Sale Date:</strong> {{ $comic['sale_date'] }}</p>
-      <p><strong>Type:</strong> {{ $comic['type'] }}</p>
+    <div class="col-6 col-md-4 col-lg-2 mb-4 d-flex">
+      <div class="comic-card text-center p-2 border">
+        <img src="{{ $comic['thumb'] }}" alt="{{ $comic['title'] }}" class="img-fluid mb-2">
+        <h5>{{ $comic['title'] }}</h5>
+        <p class="text-muted"><strong>Price:</strong> {{ $comic['price'] }}</p>
+        <p class="text-muted"><strong>Type:</strong> {{ $comic['type'] }}</p>
+      </div>
     </div>
     @endforeach
-
-  </div>
 </section>
 @endsection

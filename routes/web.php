@@ -21,3 +21,9 @@ Route::get('/comics', function () {
     $comics = config('comics');
     return view('pages.comic-index', compact('comics'));
 })->name('comic-index');
+
+Route::get('/comics/{id}', function ($id) {
+    $comics = config('comics');
+    $comic = $comics[$id] ?? abort(404);
+    return view('pages.comic-show', compact('comic'));
+})->name('comics.show');
